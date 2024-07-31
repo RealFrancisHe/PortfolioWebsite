@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="media/headshot.JPG">
+    <link rel="stylesheet" href="styles.css">
+    <title> Francis's Website </title>
+</head>
+<body>
+    <div class="outerbox">
+        <div class="innerbox">
+            <div class="slide">
+                <span class="introduction">
+                    <div class="hello">
+                        <h1> Welcome </h1>
+                    </div>
+                    <div class="introtext">
+                        <b1> You've come to learn about me (Francis He). </b1> 
+                        <br></br>
+                        <b1> The following slides will showcase my previous work experiences, alternative skills (intermediate+ level), resume, and contact information. </b1> 
+                        <br></br>
+                        <b1> Let's go! </b1>
+                    </div>
+                </span>
+            </div>
+
+            <div class="slide">
+                <span class="introduction">
+                    <div class="header">
+                        <h1> Work Experiences </h1>
+                    </div>
+                    <div class="body">
+                        <div class="mediacontainer">
+                                <p class="current"> Current Position </p>
+                                <a href="https://www.utoronto.ca/" target="_blank">
+                                    <img class="displayicon" src="media/uoft.png" alt="University of Toronto">
+                                </a>
+                               <a href="https://www.replicant.com/" target="_blank">
+                                    <img class="displayicon" src="media/replicant-logo.png" alt="Replicant">
+                                </a>
+                                <a href="https://bluroot.ca/" target="_blank">
+                                    <img class="displayicon" src="media/bluroot-logo.png" alt="BluRoot">
+                                </a>
+                                <a href="https://useriff.com/" target="_blank">
+                                    <img class="displayicon" src="media/riff-logo.png" alt="Riff">
+                                </a>
+                                <a href="https://www.canstartco.com/" target="_blank">
+                                    <img class="displayicon" style="background-color:black" src="media/csc-logo.png" alt="Canada Startup Co.">
+                                </a>
+                                <a href="https://www.compass-group.com/en/index.html" target="_blank">
+                                    <img class="displayicon" src="media/compass.png" alt="Compass Group">
+                                </a>
+                                <a href="https://hongshing.com/" target="_blank">
+                                    <img class="displayicon" src="media/hongshing.png" alt="Hong Shing">
+                                </a>
+                        </div>
+                    </div>
+                </span>
+            </div>
+
+            <div class="slide">
+                <span class="introduction">
+                    <div class="header">
+                        <h1> Alternative Skills & Hobbies </h1>
+                    </div>
+                    <div class="body">
+                        <div class="mediacontainer">
+                            <img class="displayicon" src="media/piano2.jpeg">
+                            <img class="displayicon" src="media/clarinet2.jpeg">
+                            <img class="displayicon" src="media/violin2.jpeg">
+
+                            <img class="displayicon" src="media/soccer2.jpeg">
+                            <img class="displayicon" src="media/ultimate_frisbee2.jpeg">
+                            <img class="displayicon" src="media/volleyball2.jpeg">
+
+                            <img class="displayicon" src="media/ski2.jpeg">
+                            <img class="displayicon" src="media/hockey2.jpeg">
+                            <img class="displayicon" src="media/badminton2.jpeg">
+                            <img class="displayicon" src="media/tennis.jpg">
+                            <img class="displayicon" src="media/golf.png">
+                        </div>
+                    </div>
+                </span>
+            </div>
+
+            <div class="slide">
+                <span class="introduction">
+                    <div class="header">
+                        <h1> Resume </h1>
+                    </div>
+                    <div class="body">
+                        <div class="resumes">
+                            <a style="margin-left:10px" href="resume.pdf" download="Resume">
+                                <img class="downloadicon" src="media/download-icon.png">
+                                <p style="margin: 0px"> Download a PDF </p>
+                            </a> 
+                        </div>
+                    </div>
+                </span>
+            </div>
+
+            <div class="slide">
+                <span class="introduction">
+                    <div class="header">
+                        <h1> Contact Information </h1>
+                    </div>
+                    <div class="body">
+                        <br>
+                        <div class="contacttext">
+                            Email: 
+                            <a href="mailto:fran.he.fury@gmail.com"> fran.he.fury@gmail.com </a>
+                        </div>
+                        <br>
+                        <div class="contacttext">
+                            Phone number: +1 (416) 565-8788
+                        </div>
+                    </div>
+                </span>
+            </div>
+
+            <div class="bottombar">
+                <div class="iconbar">
+                    <a href="mailto:fran.he.fury@gmail.com" target="_blank">
+                        <img class="icon" src="media/email.png">
+                    </a>
+                    <a href="https://github.com/realfrancishe" target="_blank">
+                        <img class="icon" src="media/github.png">
+                    </a>
+                    <a href="https://www.linkedin.com/in/francis-he1/" target="_blank">
+                        <img class="icon" src="media/linkedin.png">
+                    </a>
+                </div>
+                <button id="prev" class="prev" onclick="increaseSlideNumber(-1);showButton()"></button>
+                <button id="next" class="next" onclick="increaseSlideNumber(1);showButton()"></button>  
+            </div>  
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    // Slide controls
+    let currentSlide = 1;
+    let slides = document.getElementsByClassName("slide");
+    displaySlide(currentSlide);
+
+    function increaseSlideNumber (n) {
+        displaySlide(currentSlide += n);
+    }
+
+    function displaySlide(position) {
+        let current = 0;
+        
+        // reset to first slide
+        if (position > slides.length) {
+            currentSlide = 1;
+        }
+
+        // shift slide
+        for (current; current < slides.length; current++) {
+            slides[current].style.display = "none";
+        }
+        slides[currentSlide-1].style.display = "block";
+    }
+
+    // Button controls
+    function showButton() {
+        let prev = document.getElementById("prev");
+        let next = document.getElementById("next");
+        if (currentSlide == 1) {
+            prev.style.display = "none"; // if first do not show back
+        } else if (currentSlide == 5) {
+            next.style.display = "none"; // if last do not show next
+        } else {
+            prev.style.display = "inline";
+            next.style.display = "inline";
+        }
+    }
+
+</script>
+
+</html>
